@@ -75,4 +75,26 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>        <!-- قسم إدخال السؤال الديناميكي -->
+        <section class="card">
+            <h2><i class="fa-solid fa-pen-nib"></i> طرح السؤال أو رفع الورقة</h2>
+            
+            <!-- حاوية لجعل الرفع والكتابة جنباً إلى جنب -->
+            <div class="input-grid">
+                <!-- خيار رفع الصورة / المسح الضوئي -->
+                <div class="form-group">
+                    <label for="scanInput"><i class="fa-solid fa-camera"></i> مسح ضوئي / رفع ورقة:</label>
+                    <input type="file" id="scanInput" accept="image/*" capture="environment" onchange="previewImage(event)">
+                    <div id="imagePreviewContainer"></div>
+                </div>
+
+                <!-- الحقل المتغير حسب المادة (كتابة السؤال) -->
+                <div id="dynamicInputContainer" class="form-group">
+                    <!-- يتم تعبئته تلقائياً عبر JavaScript -->
+                </div>
+            </div>
+
+            <button class="btn-submit" onclick="solveQuestion()">الحصول على الإجابة الوزارية</button>
+        </section>
+
+
