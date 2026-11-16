@@ -89,3 +89,19 @@ function solveQuestion() {
 }
 
           
+/* تنسيق عرض خانة الصورة بجانب خانة الكتابة */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    align-items: start;
+    margin-bottom: 15px;
+}
+
+/* التجاوب مع الجوالات: جعلها فوق بعض إذا كانت الشاشة ضيقة */
+@media (max-width: 600px) {
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
