@@ -1,99 +1,13 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة الأسئلة الوزارية - الجمهورية اليمنية</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- مكتبة لرموز الرياضيات إن احتجتها لاحقاً -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
-    <header>
-        <h1><i class="fa-solid fa-graduation-cap"></i> الأسئلة الوزارية اليمنية</h1>
-        <p>مخصص للصف التاسع والثالث الثانوي</p>
-    </header>
-
-    <main class="container">
-        <!-- اختيار المرحلة والمادة -->
-        <section class="card">
-            <h2><i class="fa-solid fa-book"></i> حدد المادة الدراسية</h2>
-            
-            <div class="form-group">
-                <label for="gradeSelect">المرحلة الدراسية:</label>
-                <select id="gradeSelect">
-                    <option value="9">التاسع الأساسي</option>
-                    <option value="3sec">الثالث الثانوي (أدبي / علمي)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="subjectSelect">المادة:</label>
-                <select id="subjectSelect" onchange="updateQuestionInputType()">
-                    <option value="quran">القرآن الكريم وتربيته الإسلامية</option>
-                    <option value="math">الرياضيات (جبر وهندسة)</option>
-                    <option value="physics">الفيزياء / الكيمياء</option>
-                    <option value="other">بقية المواد (تاريخ، جغرافيا، إنجليزي...)</option>
-                </select>
-            </div>
-        </section>
-
         <!-- قسم إدخال السؤال الديناميكي -->
-        <section class="card">
-            <h2><i class="fa-solid fa-pen-nib"></i> طرح السؤال أو رفع الورقة</h2>
-            
-            <!-- خيار رفع الصورة / المسح الضوئي -->
-            <div class="form-group">
-                <label for="scanInput"><i class="fa-solid fa-camera"></i> مسح ضوئي / رفع ورقة السؤال (اختياري):</label>
-                <input type="file" id="scanInput" accept="image/*" capture="environment" onchange="previewImage(event)">
-                <div id="imagePreviewContainer"></div>
-            </div>
-
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
-
-            <!-- الحقل المتغير حسب المادة -->
-            <div id="dynamicInputContainer" class="form-group">
-                <!-- يتم تعبئته تلقائياً عبر JavaScript -->
-            </div>
-
-            <button class="btn-submit" onclick="solveQuestion()">الحصول على الإجابة الوزارية</button>
-        </section>
-
-        <!-- قسم عرض النتيجة -->
-        <section class="card result-card" id="resultSection" style="display: none;">
-            <h2><i class="fa-solid fa-lightbulb"></i> الإجابة النموذجية</h2>
-            <div id="answerOutput" class="answer-box">
-                <!-- ستظهر الإجابة هنا -->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>منصة تعليمية خاصة بمنهج الجمهورية اليمنية | تطوير هاجس</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>        <!-- قسم إدخال السؤال الديناميكي -->
         <section class="card">
             <h2><i class="fa-solid fa-pen-nib"></i> طرح السؤال أو رفع الورقة</h2>
             
             <!-- حاوية لجعل الرفع والكتابة جنباً إلى جنب -->
             <div class="input-grid">
-                <!-- خيار رفع الصورة / المسح الضوئي -->
+                <!-- زر رفع الصورة (يدعم المعرض والكاميرا معاً) بدون أي تكرار -->
                 <div class="form-group">
-                    <label for="scanInput"><i class="fa-solid fa-camera"></i> مسح ضوئي / رفع ورقة:</label>
-                    <input type="file" id="scanInput" accept="image/*" <!-- خيار رفع الصورة (من الكاميرا أو من المعرض) -->
-<div class="form-group">
-    <label for="scanInput"><i class="fa-solid fa-image"></i> مسح ضوئي / اختيار صورة أو التقاطها:</label>
-    
-    <!-- تم إزالة خاصية capture لكي يتيح لك الهاتف الاختيار بين الكاميرا أو الاستوديو/المعرض -->
-    <input type="file" id="scanInput" accept="image/*" onchange="previewImage(event)">
-    
-    <div id="imagePreviewContainer"></div>
-</div>
-" onchange="previewImage(event)">
+                    <label for="scanInput"><i class="fa-solid fa-image"></i> مسح ضوئي / اختيار صورة أو التقاطها:</label>
+                    <input type="file" id="scanInput" accept="image/*" onchange="previewImage(event)">
                     <div id="imagePreviewContainer"></div>
                 </div>
 
@@ -105,5 +19,4 @@
 
             <button class="btn-submit" onclick="solveQuestion()">الحصول على الإجابة الوزارية</button>
         </section>
-
 
