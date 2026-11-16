@@ -84,7 +84,16 @@
                 <!-- خيار رفع الصورة / المسح الضوئي -->
                 <div class="form-group">
                     <label for="scanInput"><i class="fa-solid fa-camera"></i> مسح ضوئي / رفع ورقة:</label>
-                    <input type="file" id="scanInput" accept="image/*" capture="environment" onchange="previewImage(event)">
+                    <input type="file" id="scanInput" accept="image/*" <!-- خيار رفع الصورة (من الكاميرا أو من المعرض) -->
+<div class="form-group">
+    <label for="scanInput"><i class="fa-solid fa-image"></i> مسح ضوئي / اختيار صورة أو التقاطها:</label>
+    
+    <!-- تم إزالة خاصية capture لكي يتيح لك الهاتف الاختيار بين الكاميرا أو الاستوديو/المعرض -->
+    <input type="file" id="scanInput" accept="image/*" onchange="previewImage(event)">
+    
+    <div id="imagePreviewContainer"></div>
+</div>
+" onchange="previewImage(event)">
                     <div id="imagePreviewContainer"></div>
                 </div>
 
